@@ -1,0 +1,38 @@
+
+
+------------------------------------------------------------------------------------------------
+Description                                               Commands
+------------------------------------------------------------------------------------------------
+Today calendar                                            cal
+
+Find me a command                                         apropos
+Find me a command related to time                         apropos time
+
+Get definition for command                                whatis
+Get definition                                            whatis find
+
+Get manual for command                                    man
+Get manual for ls                                         man ls
+
+Get command line history                                  history
+
+Copy file to file                                         cp
+Copy file "important" file "important-backup"             cp important important-backup
+
+Print file content                                        cat
+Create and write to file                                  cat >> file
+Concatenate file1 and file2 and move content              cat file1 file2 >> file3
+to file3
+
+create directory                                          mkdir
+create directories tmp,src,bin                            mkdir tmp src bin
+
+Remove empty directory                                    rmdir
+Remove empty directory temp src                           rmdir tmp src
+Remove all directory                                      rmdir *
+Remove directory recursively (all sub-directory           rm -r junk
+will be remove
+Remove file recursively                                   rm -r
+
+Rename/Move file                                          mv
+Rename file1 as file2                                     mv file1 file2
