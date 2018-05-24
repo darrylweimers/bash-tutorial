@@ -57,3 +57,25 @@ Remove file recursively                                   rm -r
 
 Rename/Move file                                          mv
 Rename file1 as file2                                     mv file1 file2
+
+
+
+root directory                                          /
+output to                                               >
+
+act as root user                                        sudo -s 
+Exit root user                                          exit 
+
+nano editor                                             nano
+create file1 using editor nano                          nano file1 
+
+pipe or redirection                                    | 
+
+Terminate an app                                        killall 
+Kill Mail                                               killall Mail
+
+Login as user                                           su -  
+Login as Darryl                                         su - Darryl 
+
+List users                                              users  
+
