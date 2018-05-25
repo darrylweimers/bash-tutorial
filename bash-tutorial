@@ -11,13 +11,55 @@ General
 —————————————————————————————————————————————————————————————————————————————————————————————
 Action 				  			                                              Command
 —————————————————————————————————————————————————————————————————————————————————————————————
-Manual for command
-manual for listing command 				                                  $man ls
+Signal end of input					                                        $CTRL + d
+Signal exit                                                         $CTRL + c
 
-Signal end of input					                                        CTRL + d
-Signal exit                                                         CTRL + c
+Find me a command                                                   $apropos
+Find me a command related to time                                   $apropos time
+
+Get definition for command                                          $whatis
+Get definition                                                      $whatis find
+
+Get manual for command                                              $man
+Get manual for ls                                                   $man ls
+
+Get command line history                                            $history
+
+Pipe or redirect                                                    |
+
+root directory                                                      /
+
+output to                                                           >
+save command line history to file history-file                      $history > history-file
 
 
+Application control
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+Terminate an app                                                    $killall
+Kill Mail                                                           $killall Mail
+
+
+Editor
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+nano editor                                                         $nano
+create file1 using editor nano                                      $nano file1
+
+
+Users
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+act as root user                                                    $sudo -s
+Exit root user                                                      $exit
+
+Login as user                                                       $su -
+Login as Darryl                                                     $su - Darryl
+
+List users                                                          $users
 
 
 Apple setting
@@ -35,6 +77,22 @@ Action 				  			                                              Command
 —————————————————————————————————————————————————————————————————————————————————————————————
 
 Move folder to folder 					                                    $mv fromPath/ toPath/
+
+Copy file                                                           $cp
+Copy file "important" file "important-backup"                       $cp important important-backup
+
+Rename/Move file                                                    $mv
+Rename file1 as file2                                               $mv file1 file2
+
+create directory                                                    $mkdir
+create directories tmp,src,bin                                      $mkdir tmp src bin
+
+Remove empty directory                                              $rmdir
+Remove empty directory temp src                                     $rmdir tmp src
+Remove all directory                                                $rmdir *
+Remove directory recursively (all sub-directory                     $rm -r junk
+will be remove
+Remove file recursively                                             $rm -r
 
 
 
@@ -64,9 +122,12 @@ Display file command
 Action 				  			                                              Command
 —————————————————————————————————————————————————————————————————————————————————————————————
 
-Concatenate and print file 			 	                                  $cat filename
+Concatenate and print file                                          $cat
+Print file content 			 	                                          $cat filename
 Concatenate and print all text files			                          $cat *.txt
-
+Create and write to file                                            $cat > file
+Concatenate file1 and file2 and move content                        $cat file1 file2 > file3
+to file3
 
 File Permission command
 —————————————————————————————————————————————————————————————————————————————————————————————
@@ -140,3 +201,10 @@ Description			  			             Operator
 Allow/Add                               +
 Prohibit                                -
 Can only                                =
+
+
+Date and Time
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+Today calendar                                                      $cal
