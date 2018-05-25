@@ -32,6 +32,7 @@ root directory                                                      /
 output to                                                           >
 save command line history to file history-file                      $history > history-file
 
+return working directory home                                       pwd
 
 Application control
 —————————————————————————————————————————————————————————————————————————————————————————————
