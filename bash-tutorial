@@ -38,8 +38,8 @@ Application control
 Action 				  			                                              Command
 —————————————————————————————————————————————————————————————————————————————————————————————
 Terminate an app                                                    $killall
-Kill Mail                                                           $killall Mail
-
+Terminate Mail                                                      $killall Mail
+Terminate google chrome on mac                                      $killall "Google Chrome"
 
 Editor
 —————————————————————————————————————————————————————————————————————————————————————————————
@@ -71,30 +71,47 @@ Prevent computer from going to sleep                                $caffeinate
 
 
 
-File/ directory manipulation command
+File/directory manipulation command
 —————————————————————————————————————————————————————————————————————————————————————————————
 Action 				  			                                              Command
 —————————————————————————————————————————————————————————————————————————————————————————————
 
-Move folder to folder 					                                    $mv fromPath/ toPath/
+Move/rename files and directories                                   $mv fromPath/ toPath/
 
-Copy file                                                           $cp
+Copy files and directories                                          $cp
 Copy file "important" file "important-backup"                       $cp important important-backup
 
 Rename/Move file                                                    $mv
 Rename file1 as file2                                               $mv file1 file2
 
-create directory                                                    $mkdir
+create directories                                                  $mkdir
 create directories tmp,src,bin                                      $mkdir tmp src bin
 
 Remove empty directory                                              $rmdir
 Remove empty directory temp src                                     $rmdir tmp src
 Remove all directory                                                $rmdir *
+
+Remove files and directories                                        $rm
 Remove directory recursively (all sub-directory                     $rm -r junk
 will be remove
 Remove file recursively                                             $rm -r
 
+Wildcards
+Allows you to select files and directories with pattern
+—————————————————————————————————————————————————————————————————————————————————————————————
+Wildcard			  			                                              Definition
+—————————————————————————————————————————————————————————————————————————————————————————————
+*                                                                   Matches any characters
+?                                                                   Matches any single character
+[characters]                                                        Matches any character in a set
+[!characters]                                                       Matches any character not a member of a set
+[[:class:]]                                                         Matches any character that is a member of a class
 
+[[:alnum:]]                                                         alphanumeric
+[[:alpha:]]                                                         alphabetic
+[[:digit:]]                                                         digit
+[[:upper:]]                                                         upper case characters
+[[:lower:]]                                                         lower case characters
 
 Find file command
 —————————————————————————————————————————————————————————————————————————————————————————————
@@ -105,7 +122,9 @@ List filename with pattern
 ending with .txt 					                                          $ls *.txt
 starting with video					                                        $ls video*
 containing 1 						                                            $ls *1*
-
+start with digit                                                    $ls [[:digit:]]*
+doesn't start with digit                                            $ls [![:digit:]]*
+end with characters 1 or 2                                          $ls *[12]
 
 
 Create file command
@@ -115,7 +134,7 @@ Action 				  			                                              Command
 
 Create empty file 					                                        $touch filename.txt
 Create empty files 					                                        $touch filename1.txt filename2.txt
-
+Create many empty files                                             $touch file-{1..10}.txt
 
 Display file command
 —————————————————————————————————————————————————————————————————————————————————————————————
