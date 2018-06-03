@@ -188,6 +188,14 @@ Read                                    r                             4
 Write                                   w                             2
 Execute                                 x                             1
 
+File Type
+—————————————————————————————————————————————————————————————————————————————————————————————
+Type				  			              Symbol
+—————————————————————————————————————————————————————————————————————————————————————————————
+File                                -
+Directory                           d
+Symbolic link                       l
+
 
 
 Binary representation
@@ -212,6 +220,18 @@ Type         User           Group             Other
 file        read             read              read
             write            execute
             execute
+
+Another example
+dr--r--r--
+
+Type         User           Group             Other
+[-]       [r][-][-]       [r][-][-]         [r][-][-]
+directory    read             read              read
+        
+
+
+
+
 
 File permission operator
 
