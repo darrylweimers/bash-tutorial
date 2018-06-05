@@ -14,6 +14,12 @@ brew install xz
 $ xz -d to-extract.xz
 
 
+cd ~      root directory 
+d         root directory
+cd -       previous directory 
+cd .      current directory 
+cd ..      up one directory 
+
 General
 —————————————————————————————————————————————————————————————————————————————————————————————
 Action 				  			                                              Command
