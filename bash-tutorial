@@ -88,6 +88,7 @@ Login as Darryl                                                     $su - Darryl
 
 List users                                                          $users
 
+Make the previous command with sudo priveledge                      $sudo !!
 
 Apple setting
 —————————————————————————————————————————————————————————————————————————————————————————————
