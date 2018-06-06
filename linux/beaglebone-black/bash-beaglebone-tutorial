@@ -1,0 +1,11 @@
+
+
+install debian image: 
+Debian 9.3 2018-03-05 4GB SD IoT
+
+ssh to beaglebone black
+setup: mac connect to beaglebone black via USB
+-----------------------------------------------------------------------------------------------------------
+action                                                              bash command
+-----------------------------------------------------------------------------------------------------------
+ssh to beaglebone black via usb using mac                           $ssh debian@192.168.6.8
