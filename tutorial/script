@@ -1,0 +1,7 @@
+
+
+
+
+
+read user input with prompt "Enter your name" and store input in variable name                 read -p "Enter your name" name
+read user input silent with prompt                                                             read -ps "Enter password" password

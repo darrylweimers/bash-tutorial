@@ -21,3 +21,9 @@ action                                                              bash command
 -----------------------------------------------------------------------------------------------------------
 Print uart 4 baud rate                                              $stty -F /dev/ttyO4
 Change uart 4 baud rate to 115200                                   $stty -F /dev/ttyO4 115200
+
+
+
+
+Install debian package                                              $sudo dpkg -i package.deb
+Remove debian package                                               $sudo dpkg -r package
