@@ -1,6 +1,6 @@
 
 
-install debian image: 
+install debian image:
 Debian 9.3 2018-03-05 4GB SD IoT
 
 ssh to beaglebone black
@@ -9,3 +9,15 @@ setup: mac connect to beaglebone black via USB
 action                                                              bash command
 -----------------------------------------------------------------------------------------------------------
 ssh to beaglebone black via usb using mac                           $ssh debian@192.168.6.8
+
+
+How to get UART serial ports working on the beaglebone black?
+https://electronics.trev.id.au/2018/02/09/get-uart-serial-ports-working-beaglebone-black/
+
+
+
+-----------------------------------------------------------------------------------------------------------
+action                                                              bash command
+-----------------------------------------------------------------------------------------------------------
+Print uart 4 baud rate                                              $stty -F /dev/ttyO4
+Change uart 4 baud rate to 115200                                   $stty -F /dev/ttyO4 115200

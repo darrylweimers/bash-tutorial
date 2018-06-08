@@ -1,0 +1,18 @@
+General
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+Find me a command                                                   $apropos
+Find me a command related to time                                   $apropos time
+
+Get definition for command                                          $whatis
+Get definition                                                      $whatis find
+
+Get manual for command                                              $man
+Get manual for ls                                                   $man ls
+
+
+How a command is interpreted                                        $type
+Display which executable will be executed                           $which
+Get help for shell builtins                                         $help
+Display a command manual page                                       $man

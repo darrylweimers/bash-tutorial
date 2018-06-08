@@ -1,0 +1,24 @@
+
+
+
+
+
+
+ls -l script-1 script-2 | sort | uniq -d
+
+
+show in page format with arrow                                  less
+key to navigate between pages
+sort alphabetically                                             sort
+show unique files                                               uniq
+show duplicated files                                           uniq -d
+word count displays number of lines, word and bytes             wc
+word count diplays number of lines only                         wc -l
+grep display lines that matches pattern                         grep pattern
+grep display lines that does not match pattern                  grep -v pattern
+grep display lines that matches pattern and ignore case         grep -i pattern
+head display first 10 lines                                     head
+head display first 5 lines                                      head -n 5
+tail display last 10 lines                                      tail
+tail display last 5 lines                                       tail -n 5
+           

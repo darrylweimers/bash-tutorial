@@ -15,30 +15,18 @@ Grep
 Action 				  			                                              Command
 —————————————————————————————————————————————————————————————————————————————————————————————
 Find keyword TYPE_NAME ignoring case sensitivity                    grep -i "TYPE_NAME" *
-Find Keyword TYPE_NAME recusively from current directory            grep -r "TYPE_NAME" * 
+Find Keyword TYPE_NAME recusively from current directory            grep -r "TYPE_NAME" *
                                                                     grep -r "TYPE_NAME" * | grep -v target
 
-Unzip 
+Directory navigation
 —————————————————————————————————————————————————————————————————————————————————————————————
 Action 				  			                                              Command
 —————————————————————————————————————————————————————————————————————————————————————————————
-Unzip 
-install xz zip                                $brew install xz
-navigate to your file and unzip               $xz -d to-extract.xz
-
-install xz zip                                $brew install unrar
-navigate to your file and unzip               $unrar x filename
-
-
-Directory navigation 
-—————————————————————————————————————————————————————————————————————————————————————————————
-Action 				  			                                              Command
-—————————————————————————————————————————————————————————————————————————————————————————————
-$cd ~      root directory 
-$d         root directory
-$cd -       previous directory 
-$cd .      current directory 
-$cd ..      up one directory 
+$cd ~      root directory
+$cd         root directory
+$cd -       previous directory
+$cd .      current directory
+$cd ..      up one directory
 
 General
 —————————————————————————————————————————————————————————————————————————————————————————————
@@ -46,15 +34,6 @@ Action 				  			                                              Command
 —————————————————————————————————————————————————————————————————————————————————————————————
 Signal end of input					                                        $CTRL + d
 Signal exit                                                         $CTRL + c
-
-Find me a command                                                   $apropos
-Find me a command related to time                                   $apropos time
-
-Get definition for command                                          $whatis
-Get definition                                                      $whatis find
-
-Get manual for command                                              $man
-Get manual for ls                                                   $man ls
 
 Get command line history                                            $history
 
@@ -261,7 +240,7 @@ dr--r--r--
 Type         User           Group             Other
 [-]       [r][-][-]       [r][-][-]         [r][-][-]
 directory    read             read              read
-        
+
 
 
 

@@ -1,0 +1,10 @@
+Unzip
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+Unzip
+install xz zip                                $brew install xz
+navigate to your file and unzip               $xz -d to-extract.xz
+
+install xz zip                                $brew install unrar
+navigate to your file and unzip               $unrar x filename
