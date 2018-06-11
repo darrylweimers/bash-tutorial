@@ -7,10 +7,6 @@ Action       		                             Command
 Enter control mode 		                       ESC
 
 
-
-
-
-
 Cursor manipulation
 ———————————————————————————————————————————————————————————————————
 Action       		                             Command
@@ -33,3 +29,8 @@ Action       		                             Command
 Save and quit 			                         :wq
 Save 				                                 :w
 insert				                               i
+
+
+Search for word:
+
+/search-for-word
