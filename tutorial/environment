@@ -1,0 +1,27 @@
+environment variable
+
+commonly used:
+
+USER          username
+HOME          home directory
+PWD           current working directory
+PATH          A colon-separated list of directories that are searched when you enter the name of a executable program
+
+
+
+
+to get variable content, precede variable with dollar sign ($)
+$HOME
+
+
+$ echo $HOME
+output:       /Users/darrylweimers
+
+$ echo $PWD
+output:       /Users/darrylweimers/git/bash-tutorial
+
+$ echo $USER
+output:       darrylweimers
+
+$ echo $PATH
+output:       /Library/Frameworks/Python.framework/Versions/3.5/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin

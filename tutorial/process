@@ -1,0 +1,18 @@
+
+Process snapshot
+Get a snapshot of process running
+
+current terminal process
+
+
+
+
+
+Kill
+Send signal to process to kill
+
+syntax: kill [-signal] PID
+
+/Applications/Google Chrome.app/Contents
+
+TERM (terminate) is assumed if no signal is specified       kill

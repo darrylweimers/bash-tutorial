@@ -1,5 +1,7 @@
 VIM Tutorial
 
+leading tilde characters (”~”) indicate that no text exists on that line
+
 Control Menu
 ———————————————————————————————————————————————————————————————————
 Action       		                             Command
@@ -26,6 +28,8 @@ File operation
 ———————————————————————————————————————————————————————————————————
 Action       		                             Command
 ———————————————————————————————————————————————————————————————————
+quit                                         :q
+force quit                                   :q!
 Save and quit 			                         :wq
 Save 				                                 :w
 insert				                               i
