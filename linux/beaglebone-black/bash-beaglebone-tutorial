@@ -11,26 +11,54 @@ action                                                              bash command
 ssh to beaglebone black via usb using mac                           $ssh debian@192.168.6.8
 
 
+Terms
+______________________________________________________________________________________________________________
+ocp: on chip peripheral
+device tree: set up Pin mux configuration for all OCP devices at boot time
+device tree overalys: adjust pin configuration at run time
+
+
+Action                                                  Command
+______________________________________________________________________________________________________________
+add environment variable to your start up file          $ sudo nano .bashrc
+
+                                                        Environment Variables - ssh into your BBB and append your bashrc with following lines:
+                                                        export PINS=/sys/kernel/debug/pinctrl/44e10800.pinmux
+                                                        export FW=/lib/firmware
+                                                        export GPIODIR=/sys/class/gpio
+                                                        export OCPDIR=/sys/devices/platform/ocp/
+
+
+modify you boot file                                    $ sudo nano /boot/uEnv.txt
+
+View config-pin script                                  $ cat /usr/bin/config-pin
+
+Show tty* enabled                                       $ dmesg | grep tty/
+
+
+show information to <pin>                               $ config-pin -i P8.37
+config-pin -i <pin>
+
+view pin configuration options                          $ config-pin -l P8_46
+
+config pin to uart mode                                 $ config-pin P8.37 uart
+
+Get beaglebone version                                  $ sudo /opt/scripts/tools/version.sh
+
+Print uart 4 baud rate                                  $ stty -F /dev/ttyO4
+Change uart 4 baud rate to 115200                       $ stty -F /dev/ttyO4 115200
+
+Install debian package                                   $ sudo dpkg -i package.deb
+Remove debian package                                    $ sudo dpkg -r package
+
+
+
+
+
+
+
 How to get UART serial ports working on the beaglebone black?
 https://electronics.trev.id.au/2018/02/09/get-uart-serial-ports-working-beaglebone-black/
-
-
-
------------------------------------------------------------------------------------------------------------
-action                                                              bash command
------------------------------------------------------------------------------------------------------------
-Print uart 4 baud rate                                              $stty -F /dev/ttyO4
-Change uart 4 baud rate to 115200                                   $stty -F /dev/ttyO4 115200
-
-
-
-
-Install debian package                                              $sudo dpkg -i package.deb
-Remove debian package                                               $sudo dpkg -r package
-
-
-For a list of valid pinmux states for each pin, use the config-pin utility:
-config-pin -l <pin>
 
 
 Device tree overlay files
@@ -42,328 +70,3 @@ $ ls /lib/firmware | grep UART
 
 add the desired dto to /boot/uEnv.txt
 to enable overlay
-
-********************************************beagke bone version *****************************
-sudo /opt/scripts/tools/version.sh
-
-
-config pin
-config-pin P8.37 uart
-
-
-
-view pin configuration options
-config-pin -l P8_46
-
-config-pin -i <pin>
-    show information to <pin>
-
-
-ocp: on chip peripheral
-device tree: set up Pin mux configuration for all OCP devices at boot time
-device tree overalys: adjust pin configuration at run time
-
-//////////////////////////////////////enable pins
-sudo nano .bashrc
-
-Environment Variables - ssh into your BBB and append your bashrc with following lines:
-export PINS=/sys/kernel/debug/pinctrl/44e10800.pinmux
-export FW=/lib/firmware
-export GPIODIR=/sys/class/gpio
-export OCPDIR=/sys/devices/platform/ocp/
-
-//////////////////modify you boot file
-sudo nano /boot/uEnv.txt
-
-
-
-
-cat /usr/bin/config-pin
-
-# Configure a single pin
-# $1 = Pin name
-# $2 = Pin mode
-config_pin () {
-	set -e
-	OVERLAY=$(fixup_overlay $1)
-
-	if [ $OVERLAY = "1" ] ; then
-		if [ ${disable_capemgr_load} -eq 0 ] ; then
-			load_cape $2
-		fi
-	else
-		PIN=$(fixup_pin $1)
-
-		MODE="$(listmode $PIN)"
-		MODES="$(listmodes $PIN)"
-		DIR=""
-
-
-
-///////////////////////////////Show tty* enabled 
- dmesg | grep tty/
-
-
-
-
-    I am trying to set pins P8.37 and P8.38 to UART mode as follow:
-
-debian@beaglebone:~$ config-pin P8.38 uart
-
-P8_38 pinmux file not found!
-
-sudo: no askpass program specified, try setting SUDO_ASKPASS
-
-Cannot write pinmux file: /sys/devices/platform/ocp/ocp*P8_38_pinmux/state
-
-debian@beaglebone:~$ config-pin P8.37 uart
-
-P8_37 pinmux file not found!
-
-sudo: no askpass program specified, try setting SUDO_ASKPASS
-
-Cannot write pinmux file: /sys/devices/platform/ocp/ocp*P8_37_pinmux/state
-
-
-
-It seems that config-pin function is looking in the wrong directory for P8_37 and P8_38 as the pin mux file is located at "/sys/devices/platform/ocp/of_node" and not at "ls /sys/devices/platform/ocp/". The following prove my statement:
-
-
-
-$ ls /sys/devices/platform/ocp/of_node
-
-#address-cells                 mcasp@4803C000    P8_24_pinmux  P9_15_pinmux            serial@44e09000
-
-aes@53500000                   mmc@47810000      P8_25_pinmux  P9_16_pinmux            serial@48022000
-
-can@481cc000                   mmc@48060000      P8_26_pinmux  P9_17_pinmux            serial@48024000
-
-can@481d0000                   mmc@481d8000      P8_27_pinmux  P9_18_pinmux            serial@481a6000
-
-cape-universal                 name              P8_28_pinmux  P9_19_pinmux            serial@481a8000
-
-compatible                     ocmcram@40300000  P8_29_pinmux  P9_20_pinmux            serial@481aa000
-
-edma@49000000                  P8_03_pinmux      P8_30_pinmux  P9_21_pinmux            sgx@56000000
-
-elm@48080000                   P8_04_pinmux      P8_31_pinmux  P9_22_pinmux            sham@53100000
-
-emif@4c000000                  P8_05_pinmux      P8_32_pinmux  P9_23_pinmux            #size-cells
-
-epwmss@48300000                P8_06_pinmux      P8_33_pinmux  P9_24_pinmux            spi@48030000
-
-epwmss@48302000                P8_07_pinmux      P8_34_pinmux  P9_25_pinmux            spi@481a0000
-
-epwmss@48304000                P8_08_pinmux      P8_35_pinmux  P9_26_pinmux            spinlock@480ca000
-
-ethernet@4a100000              P8_09_pinmux      P8_36_pinmux  P9_27_pinmux            ti,hwmods
-
-gpio@44e07000                  P8_10_pinmux      P8_37_pinmux  P9_28_pinmux            timer@44e31000
-
-gpio@4804c000                  P8_11_pinmux      P8_38_pinmux  P9_29_pinmux            timer@48040000
-
-gpio@481ac000                  P8_12_pinmux      P8_39_pinmux  P9_30_pinmux            timer@48042000
-
-gpio@481ae000                  P8_13_pinmux      P8_40_pinmux  P9_31_pinmux            timer@48044000
-
-gpmc@50000000                  P8_14_pinmux      P8_41_pinmux  P9_41_pinmux            timer@48046000
-
-i2c@44e0b000                   P8_15_pinmux      P8_42_pinmux  P9_42_pinmux            timer@48048000
-
-i2c@4802a000                   P8_16_pinmux      P8_43_pinmux  P9_91_pinmux            timer@4804a000
-
-i2c@4819c000                   P8_17_pinmux      P8_44_pinmux  P9_92_pinmux            tptc@49800000
-
-interrupt-controller@48200000  P8_18_pinmux      P8_45_pinmux  phandle                 tptc@49900000
-
-l4_wkup@44c00000               P8_19_pinmux      P8_46_pinmux  pruss@4a300000          tptc@49a00000
-
-lcdc@4830e000                  P8_20_pinmux      P9_11_pinmux  pruss_soc_bus@4a326000  tscadc@44e0d000
-
-linux,phandle                  P8_21_pinmux      P9_12_pinmux  ranges                  usb@47400000
-
-mailbox@480C8000               P8_22_pinmux      P9_13_pinmux  rng@48310000            wdt@44e35000
-
-mcasp@48038000                 P8_23_pinmux      P9_14_pinmux  rtc@44e3e000
-
-
-
-
-
-Further, this are info of my system and setup:
-
-
-
-Image I used: Debian 9.3 2018-03-05 4GB SD IoT
-
-
-
-debian@beaglebone:~$ cat /boot/uEnv.txt
-
-#Docs: http://elinux.org/Beagleboard:U-boot_partitioning_layout_2.0
-
-
-
-uname_r=4.9.82-ti-r102
-
-#uuid=
-
-#dtb=
-
-
-
-
-
-###U-Boot Overlays###
-
-###Documentation: http://elinux.org/Beagleboard:BeagleBoneBlack_Debian#U-Boot_Overlays
-
-###Master Enable
-
-enable_uboot_overlays=1
-
-###
-
-###Overide capes with eeprom
-
-#uboot_overlay_addr0=/lib/firmware/<file0>.dtbo
-
-#uboot_overlay_addr1=/lib/firmware/<file1>.dtbo
-
-#uboot_overlay_addr2=/lib/firmware/<file2>.dtbo
-
-#uboot_overlay_addr3=/lib/firmware/<file3>.dtbo
-
-###
-
-###Additional custom capes
-
-#uboot_overlay_addr4=/lib/firmware/<file4>.dtbo
-
-#uboot_overlay_addr5=/lib/firmware/<file5>.dtbo
-
-#uboot_overlay_addr6=/lib/firmware/<file6>.dtbo
-
-#uboot_overlay_addr7=/lib/firmware/<file7>.dtbo
-
-###
-
-###Custom Cape
-
-#dtb_overlay=/lib/firmware/<file8>.dtbo
-
-###
-
-###Disable auto loading of virtual capes (emmc/video/wireless/adc)
-
-#disable_uboot_overlay_emmc=1
-
-disable_uboot_overlay_video=1
-
-disable_uboot_overlay_audio=1
-
-#disable_uboot_overlay_wireless=1
-
-#disable_uboot_overlay_adc=1
-
-###
-
-###PRUSS OPTIONS
-
-###pru_rproc (4.4.x-ti kernel)
-
-#uboot_overlay_pru=/lib/firmware/AM335X-PRU-RPROC-4-4-TI-00A0.dtbo
-
-###pru_uio (4.4.x-ti, 4.14.x-ti & mainline/bone kernel)
-
-#uboot_overlay_pru=/lib/firmware/AM335X-PRU-UIO-00A0.dtbo
-
-###
-
-###Cape Universal Enable
-
-enable_uboot_cape_universal=1
-
-###
-
-###Debug: disable uboot autoload of Cape
-
-#disable_uboot_overlay_addr0=1
-
-#disable_uboot_overlay_addr1=1
-
-#disable_uboot_overlay_addr2=1
-
-#disable_uboot_overlay_addr3=1
-
-###
-
-###U-Boot fdt tweaks... (60000 = 384KB)
-
-#uboot_fdt_buffer=0x60000
-
-###U-Boot Overlays###
-
-
-
-cmdline=coherent_pool=1M net.ifnames=0 quiet
-
-
-
-#In the event of edid real failures, uncomment this next line:
-
-#cmdline=coherent_pool=1M net.ifnames=0 quiet video=HDMI-A-1:1024x768@60e
-
-
-
-##enable Generic eMMC Flasher:
-
-##make sure, these tools are installed: dosfstools rsync
-
-#cmdline=init=/opt/scripts/tools/eMMC/init-eMMC-flasher-v3.sh
-
-
-
-debian@beaglebone:~$ sudo /opt/scripts/tools/version.sh
-
-git:/opt/scripts/:[e307a944e0be0610ff5296e0abe4ad31a6e70daa]
-
-eeprom:[A335BNLT00C04816BBBK0C22]
-
-model:[TI_AM335x_BeagleBone_Black]
-
-dogtag:[BeagleBoard.org Debian Image 2018-03-05]
-
-bootloader:[eMMC-(default)]:[/dev/mmcblk1]:[U-Boot 2018.01-00002-ge9ff418fb8]:[location: dd MBR]
-
-kernel:[4.9.82-ti-r102]
-
-nodejs:[v6.13.0]
-
-uboot_overlay_options:[enable_uboot_overlays=1]
-
-uboot_overlay_options:[disable_uboot_overlay_video=1]
-
-uboot_overlay_options:[disable_uboot_overlay_audio=1]
-
-uboot_overlay_options:[enable_uboot_cape_universal=1]
-
-pkg:[bb-cape-overlays]:[4.4.20180305.0-0rcnee0~stretch+20180305]
-
-pkg:[bb-wl18xx-firmware]:[1.20170829-0rcnee2~stretch+20180104]
-
-pkg:[firmware-ti-connectivity]:[20170823-1rcnee0~stretch+20170830]
-
-groups:[debian : debian adm kmem dialout cdrom floppy audio dip video plugdev users systemd-journal i2c bluetooth netdev cloud9ide gpio pwm eqep admin spi tisdk weston-launch xenomai]
-
-cmdline:[console=ttyO0,115200n8 bone_capemgr.disable_partno=BB-BONELT-HDMI,BB-BONELT-HDMIN bone_capemgr.enable_partno=BB-UART1,BB-UART2,BB-UART4,BB-UART5 bone_capemgr.uboot_capemgr_enabled=1 root=/dev/mmcblk1p1 ro rootfstype=ext4 rootwait coherent_pool=1M net.ifnames=0 quiet]
-
-dmesg | grep pinctrl-single
-
-[    1.419572] pinctrl-single 44e10800.pinmux: 142 pins at pa f9e10800 size 568
-
-dmesg | grep gpio-of-helper
-
-[    1.426679] gpio-of-helper ocp:cape-universal: ready
-
-END

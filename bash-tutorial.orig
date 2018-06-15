@@ -1,0 +1,280 @@
+Mac:  prompt by the $ sign
+
+Tip:
+When you get error message “Please try running this command again as root/Administrator”
+It simply means you need administrator permission to execute command
+
+Add sudo to the beginning of your command, which is short for “super user do”.
+
+Install Homebrew package manager system following instructions at:
+https://brew.sh/
+
+https://www.ostechnix.com/the-grep-command-tutorial-with-examples-for-beginners/
+Grep
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+Find keyword TYPE_NAME ignoring case sensitivity                    grep -i "TYPE_NAME" *
+Find Keyword TYPE_NAME recusively from current directory            grep -r "TYPE_NAME" *
+                                                                    grep -r "TYPE_NAME" * | grep -v target
+
+Directory navigation
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+$cd ~      root directory
+$cd         root directory
+$cd -       previous directory
+$cd .      current directory
+$cd ..      up one directory
+
+General
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+Signal end of input					                                        $CTRL + d
+Signal exit                                                         $CTRL + c
+
+Get command line history                                            $history
+
+Pipe or redirect                                                    |
+
+root directory                                                      /
+
+output to                                                           >
+save command line history to file history-file                      $history > history-file
+
+return working directory home                                       pwd
+
+Application control
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+Terminate an app                                                    $killall
+Terminate Mail                                                      $killall Mail
+Terminate google chrome on mac                                      $killall "Google Chrome"
+
+Editor
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+nano editor                                                         $nano
+create file1 using editor nano                                      $nano file1
+
+
+<<<<<<< HEAD
+
+=======
+Users
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+act as root user                                                    $ sudo -s
+Exit root user                                                      $ exit
+
+Login as user                                                       $ su -
+Note that - is simplified by -l where l stands for login
+will login as superuser if no user is specified
+
+Login as Darryl                                                     $ su - Darryl
+
+List users                                                          $ users
+
+Make the previous command with sudo priveledge                      $ sudo !!
+
+chown – Change File/directory Owner And Group                       $ sudo chown Darryl:everyone junk/
+Superuser privileges are required to use this command.
+chown [owner][:[group]] file...
+
+change password                                                     $ passwd
+
+>>>>>>> 5112fe35882ba0a3f44b3428052e86a809003a66
+
+Apple setting
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+Change the default format for screenshot 		                        $defaults write com.apple.screencapture type jpg
+Prevent computer from going to sleep                                $caffeinate
+
+
+
+File/directory manipulation command
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+Move/rename files and directories                                   $mv fromPath/ toPath/
+
+Copy files and directories                                          $cp
+Copy file "important" file "important-backup"                       $cp important important-backup
+
+Rename/Move file                                                    $mv
+Rename file1 as file2                                               $mv file1 file2
+
+create directories                                                  $mkdir
+create directories tmp,src,bin                                      $mkdir tmp src bin
+
+Remove empty directory                                              $rmdir
+Remove empty directory temp src                                     $rmdir tmp src
+Remove all directory                                                $rmdir *
+
+Remove files and directories                                        $rm
+Remove directory recursively (all sub-directory                     $rm -r junk
+will be remove
+Remove file recursively                                             $rm -r
+
+
+
+
+Wildcards
+Allows you to select files and directories with pattern
+—————————————————————————————————————————————————————————————————————————————————————————————
+Wildcard			  			                                              Definition
+—————————————————————————————————————————————————————————————————————————————————————————————
+*                                                                   Matches any characters
+?                                                                   Matches any single character
+[characters]                                                        Matches any character in a set
+[!characters]                                                       Matches any character not a member of a set
+[[:class:]]                                                         Matches any character that is a member of a class
+
+[[:alnum:]]                                                         alphanumeric
+[[:alpha:]]                                                         alphabetic
+[[:digit:]]                                                         digit
+[[:upper:]]                                                         upper case characters
+[[:lower:]]                                                         lower case characters
+
+Find file command
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+List filename with pattern
+ending with .txt 					                                          $ls *.txt
+starting with video					                                        $ls video*
+containing 1 						                                            $ls *1*
+start with digit                                                    $ls [[:digit:]]*
+doesn't start with digit                                            $ls [![:digit:]]*
+end with characters 1 or 2                                          $ls *[12]
+
+
+Create file command
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+Create empty file 					                                        $touch filename.txt
+Create empty files 					                                        $touch filename1.txt filename2.txt
+Create many empty files                                             $touch file-{1..10}.txt
+
+Display file command
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+Concatenate and print file                                          $cat
+Print file content 			 	                                          $cat filename
+Concatenate and print all text files			                          $cat *.txt
+Create and write to file                                            $cat > file
+Concatenate file1 and file2 and move content                        $cat file1 file2 > file3
+to file3
+
+File Permission command
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+Change file Permission			 	                                      $chmod
+Change file permission to:                                          $chmod 755 filename.txt
+read, write, execute for user
+read and execute for group
+read and execute for other
+
+Get new file creation permission                                    $umask
+Set new file creation permission                                    $umask 755
+Add new file creation permission
+allow user to read                                                  $umask u+r
+Do the follow:                                                      $umask u-x,g=r,o+w
+  - prohibit user to execute and other setting unchange
+  - make user class group to read only
+  - make user class other able to write and other setting unchange
+
+Classes of users:
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+User Classes			  			            Symbol
+—————————————————————————————————————————————————————————————————————————————————————————————
+User                                    u
+Group                                   g
+Other                                   o
+All                                     a
+
+File permission/access is represented using symbols or octal numeric value:
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+Permission				  			              Symbol                      Value
+—————————————————————————————————————————————————————————————————————————————————————————————
+Read                                    r                             4
+Write                                   w                             2
+Execute                                 x                             1
+
+File Type
+—————————————————————————————————————————————————————————————————————————————————————————————
+Type				  			              Symbol
+—————————————————————————————————————————————————————————————————————————————————————————————
+File                                -
+Directory                           d
+Symbolic link                       l
+
+
+
+Binary representation
+
+[read]      [write]   [execute]      COMBINED VALUE       SYBMOL
+  0           0           0                 0
+  0           0           1                 1               x
+  0           1           0                 2               w
+  0           1           1                 3               wx
+  1           0           0                 4               r
+  1           0           1                 5               rx
+  1           1           0                 6               rw
+  1           1           1                 7               rwx
+
+
+File permission example:
+
+-rwxr-xr--
+
+Type         User           Group             Other
+[-]       [r][w][x]       [r][-][x]         [r][-][-]
+file        read             read              read
+            write            execute
+            execute
+
+Another example
+dr--r--r--
+
+Type         User           Group             Other
+[-]       [r][-][-]       [r][-][-]         [r][-][-]
+directory    read             read              read
+
+
+
+
+
+
+File permission operator
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+Description			  			             Operator
+—————————————————————————————————————————————————————————————————————————————————————————————
+Allow/Add                               +
+Prohibit                                -
+Can only                                =
+
+
+Date and Time
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+Today calendar                                                      $cal
