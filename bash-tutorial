@@ -62,19 +62,7 @@ nano editor                                                         $nano
 create file1 using editor nano                                      $nano file1
 
 
-Users
-—————————————————————————————————————————————————————————————————————————————————————————————
-Action 				  			                                              Command
-—————————————————————————————————————————————————————————————————————————————————————————————
-act as root user                                                    $sudo -s
-Exit root user                                                      $exit
 
-Login as user                                                       $su -
-Login as Darryl                                                     $su - Darryl
-
-List users                                                          $users
-
-Make the previous command with sudo priveledge                      $sudo !!
 
 Apple setting
 —————————————————————————————————————————————————————————————————————————————————————————————
@@ -109,6 +97,9 @@ Remove files and directories                                        $rm
 Remove directory recursively (all sub-directory                     $rm -r junk
 will be remove
 Remove file recursively                                             $rm -r
+
+
+
 
 Wildcards
 Allows you to select files and directories with pattern

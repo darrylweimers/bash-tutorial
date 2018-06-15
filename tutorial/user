@@ -1,0 +1,13 @@
+Users
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+act as root user                                                    $sudo -s
+Exit root user                                                      $exit
+
+Login as user                                                       $su -
+Login as Darryl                                                     $su - Darryl
+
+List users                                                          $users
+
+Make the previous command with sudo priveledge                      $sudo !!
