@@ -57,3 +57,10 @@ End terminal
 Reopen terminal
 cat ~/.bash_profile | grep TEST
 output: TEST="test"
+
+
+# Add pycharm to environment variable for mac 
+alias pycharm="/Applications/PyCharm CE.app/Contents/MacOS/pycharm"
+# to open pycharm, type following in command line: pycharm
+# to open pycharm project, type follwing in command line: pycharm ~/project-file-path
+
