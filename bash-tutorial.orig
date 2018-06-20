@@ -62,6 +62,9 @@ nano editor                                                         $nano
 create file1 using editor nano                                      $nano file1
 
 
+<<<<<<< HEAD
+
+=======
 Users
 —————————————————————————————————————————————————————————————————————————————————————————————
 Action 				  			                                              Command
@@ -85,6 +88,7 @@ chown [owner][:[group]] file...
 
 change password                                                     $ passwd
 
+>>>>>>> 5112fe35882ba0a3f44b3428052e86a809003a66
 
 Apple setting
 —————————————————————————————————————————————————————————————————————————————————————————————

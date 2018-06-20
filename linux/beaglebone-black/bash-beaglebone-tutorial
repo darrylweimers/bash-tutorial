@@ -11,19 +11,62 @@ action                                                              bash command
 ssh to beaglebone black via usb using mac                           $ssh debian@192.168.6.8
 
 
+Terms
+______________________________________________________________________________________________________________
+ocp: on chip peripheral
+device tree: set up Pin mux configuration for all OCP devices at boot time
+device tree overalys: adjust pin configuration at run time
+
+
+Action                                                  Command
+______________________________________________________________________________________________________________
+add environment variable to your start up file          $ sudo nano .bashrc
+
+                                                        Environment Variables - ssh into your BBB and append your bashrc with following lines:
+                                                        export PINS=/sys/kernel/debug/pinctrl/44e10800.pinmux
+                                                        export FW=/lib/firmware
+                                                        export GPIODIR=/sys/class/gpio
+                                                        export OCPDIR=/sys/devices/platform/ocp/
+
+
+modify you boot file                                    $ sudo nano /boot/uEnv.txt
+
+View config-pin script                                  $ cat /usr/bin/config-pin
+
+Show tty* enabled                                       $ dmesg | grep tty/
+
+
+show information to <pin>                               $ config-pin -i P8.37
+config-pin -i <pin>
+
+view pin configuration options                          $ config-pin -l P8_46
+
+config pin to uart mode                                 $ config-pin P8.37 uart
+
+Get beaglebone version                                  $ sudo /opt/scripts/tools/version.sh
+
+Print uart 4 baud rate                                  $ stty -F /dev/ttyO4
+Change uart 4 baud rate to 115200                       $ stty -F /dev/ttyO4 115200
+
+Install debian package                                   $ sudo dpkg -i package.deb
+Remove debian package                                    $ sudo dpkg -r package
+
+
+
+
+
+
+
 How to get UART serial ports working on the beaglebone black?
 https://electronics.trev.id.au/2018/02/09/get-uart-serial-ports-working-beaglebone-black/
 
 
+Device tree overlay files
 
------------------------------------------------------------------------------------------------------------
-action                                                              bash command
------------------------------------------------------------------------------------------------------------
-Print uart 4 baud rate                                              $stty -F /dev/ttyO4
-Change uart 4 baud rate to 115200                                   $stty -F /dev/ttyO4 115200
+ls /lib/firmware
 
+for uart specifically
+$ ls /lib/firmware | grep UART
 
-
-
-Install debian package                                              $sudo dpkg -i package.deb
-Remove debian package                                               $sudo dpkg -r package
+add the desired dto to /boot/uEnv.txt
+to enable overlay
