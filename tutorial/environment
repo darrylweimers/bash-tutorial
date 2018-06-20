@@ -8,8 +8,6 @@ PWD           current working directory
 PATH          A colon-separated list of directories that are searched when you enter the name of a executable program
 
 
-
-
 to get variable content, precede variable with dollar sign ($)
 $HOME
 
@@ -25,3 +23,37 @@ output:       darrylweimers
 
 $ echo $PATH
 output:       /Library/Frameworks/Python.framework/Versions/3.5/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+
+Print environment variables
+
+$printenv
+Output:
+TERM=xterm-256color
+SHELL=/bin/bash
+TMPDIR=/var/folders/lp/8cv28l8s49j5s4nzvwmzkk700000gn/T/
+Apple_PubSub_Socket_Render=/private/tmp/com.apple.launchd.fLzIIJFMf1/Render
+TERM_PROGRAM_VERSION=388.1.1
+TERM_SESSION_ID=72BB8A01-C6B8-432B-B157-C14F6DF94192
+USER=darrylweimers
+
+
+
+Print environment and shell variable
+
+$ set | less
+BASH=/bin/bash
+BASH_ARGC=()
+BASH_ARGV=()
+BASH_LINENO=()
+BASH_REMATCH=([0]="l")
+BASH_SOURCE=()
+
+
+Add your own environment variables
+$ sudo nano ~/.bash_profile
+add TEST="test"  to file
+End terminal
+Reopen terminal
+cat ~/.bash_profile | grep TEST
+output: TEST="test"

@@ -5,3 +5,53 @@ This is followed by more startup files in our home directory that define our per
 
 
 system log in > invoke configuration scripts (aka start up files)
+
+
+The linux software ecosystem is open source
+
+Device drivers is part of linux kernel
+
+Package management is a method of installing and maintaining software on the system
+Two main categories of packaging technology are:
+debian (.deb) and red hat (.rpm)
+
+Packaging System                    Distributions (Partial Listing)
+Debian Style (.deb)                 Debian, Ubuntu, Linux Mint, Raspbian
+Red Hat Style (.rpm)                Fedora, CentOS, Red Hat Enterprise Linux, OpenSUSE
+
+
+A package file is a compressed collection of files that comprise the software package.
+A package may consist of numerous programs and data files that support the programs.
+
+The package maintainer gets the software in source code form from the upstream provider (the author of the program).
+
+Dependencies
+shared libraries, which provide essential services to more than one program.
+If a package requires a shared resource such as a shared library, it is said to have a dependency.
+Modern package management systems all provide some method of dependency resolution
+to ensure that when a package is installed, all of its dependencies are installed, too.
+
+Distributions                                 Low-Level Tools           High-Level Tools
+Debian-Style                                  dpkg                      apt-get, aptitude
+Fedora, Red Hat Enterprise Linux, CentOS      rpm                       yum
+
+
+____________________________________________________________________________________________________________________________________________
+Action                                        Debian Command(s)                      Red Hat command
+____________________________________________________________________________________________________________________________________________
+Installing A Package From A Repository        apt-get install package_name           yum install package_name
+
+Installing A Package From A Package File      dpkg --install package_file            rpm -i package_file
+                                              dpkg -i package_file
+
+Remove a package using high level tool        apt-get remove package_name            yum erase package_name
+
+Remove a package using low level tool         dpkg -r package_name
+
+Updating Packages From A Repository           apt-get update                         yum update
+
+Upgrading A Package From A Package File       dpkg -i package_file                   rpm -U package_file
+
+Listing installed packages                    dpkg --list                            rpm -qa
+
+Package status                                dpkg --status package_name             rpm -q package_name

@@ -5,3 +5,154 @@
 
 read user input with prompt "Enter your name" and store input in variable name                 read -p "Enter your name" name
 read user input silent with prompt                                                             read -ps "Enter password" password
+
+
+# Tip shell scripts
+# space sensitive
+
+# Variable
+Three main type of variables:
+environment variable: belongs to shell session
+local variable: belongs to current instance of shell
+syntax:    $ variable=value
+REMARK:
+- no white space on either side of equal sign
+- can be anything string, integer, float
+
+# access variable
+precede variable name with dollar sign ($) to get access value
+
+$ echo $variable
+output: value
+
+# make variable readonly
+A variable can become read only using the readonly command
+
+$ readonly variable
+$ variable=6
+-bash: variable: readonly variable
+
+# delete/unset a variable
+Delete a variable
+
+$ var=value
+$ unset var
+$ echo $var
+Output: [Empty]
+
+
+# special shell variables
+
+
+current shell process id                $ echo $$
+                                        output: 15421
+
+previous shell process id               $ echo $!
+
+previous shell exit status              $ echo $?
+                                        output: 0
+
+script file name                        $ echo $0
+                                        output: -bash
+
+script input argument 1                 $ echo $1
+script input argument 2                 $ echo $2
+
+number of argument supply to script     $ echo $#
+
+all arguments                           $ echo $*
+                                        $ echo $@
+
+loop through all arguments              for TOKEN in $*
+                                        do
+                                           echo $TOKEN
+                                        done
+
+# array
+
+syntax:       array_name[index]=value
+
+
+array initialization                      $ declare -a array=(1 2 3)
+
+assign value to array                     $ array[0]=1
+                                          $ array[1]=2
+
+accessing a single value from array       $ echo ${array[1]}
+                                          output: 2
+
+accessing all value in array              $ echo ${array[*]}
+                                          output: 1 2
+                                          $ echo ${array[@]}
+                                          output: 1 2
+
+# Arithmetic
+
+arithmetics in shell are performed via a program named expr
+
+Note:
+-white space matters
+-use back tick ` not quote '
+
+addition                                $ var=`expr 5 + 6`
+                                        $ echo $var
+                                        output: 11
+
+substraction                            $ var=`expr 5 - 6`
+                                        $ echo $var
+                                        output: -1
+
+
+multiplication                          $ var=`expr 5 \* 6`
+                                        $ echo $var
+                                        output: 30
+
+division                                $ var=`expr 5 \ 6`
+                                        $ echo $var
+                                        output: 0
+
+modulus                                 $ var=`expr 5 % 6`
+                                        $ echo $var
+                                        output: 5
+
+
+Assignment                              $ a=4;b=5
+                                        $ echo $a
+                                        output: 4
+                                        $ echo $b
+                                        output: 5
+                                        $ a=$b
+                                        $ echo $a
+                                        output: 5
+
+Equality                                syntax: [ $a == $b ]
+                                        -square bracket is mandatory
+                                        -space is mandatory
+
+Inequality                              syntax: [ $a != $b ]
+
+#Relational Operators
+
+works for numeric value or numeric value represented as string value (e.g. "20")
+
+equal                         [ $a -eq $b ]
+
+not equal                     [ $a -ne $b ]
+
+greater than                  [ $a -gt $b ]
+
+less than                     [ $a -lt $b ]
+
+greater than or equal         [ $a -ge $b ]
+
+less than or equal            [ $a -le $b ]
+
+
+# Boolean operator
+
+
+invert                        [ !true ]
+
+and                           [ $a -eq $b -a $a -eq $c ]
+
+or                            [ $a -eq $b -o $a -eq $c ]
