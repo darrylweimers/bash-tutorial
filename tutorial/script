@@ -1,12 +1,3 @@
-
-
-
-
-
-read user input with prompt "Enter your name" and store input in variable name                 read -p "Enter your name" name
-read user input silent with prompt                                                             read -ps "Enter password" password
-
-
 # Tip shell scripts
 # space sensitive
 
@@ -156,3 +147,166 @@ invert                        [ !true ]
 and                           [ $a -eq $b -a $a -eq $c ]
 
 or                            [ $a -eq $b -o $a -eq $c ]
+
+# String operator
+
+given:
+a="Hello"
+b="Wolrd"
+
+string is:
+
+zero length                   [ -z $a ]
+
+non zero length               [ -n $a ]
+
+equal                         [ $a = $b ]
+
+not equal                     [ $a != $b ]
+
+true: is not empty string     [ $a ]
+
+
+# file operator
+
+file exist                      [ -e file ]
+file is directory               [ -d file ]
+file is readable                [ -r file ]
+file is writable                [ -w file ]
+file is executable              [ -x file ]
+file size is greater than zero  [ -s file ]
+file is ordinary file           [ -f file ]
+
+
+# Decision making
+
+# if else
+
+# example 1
+
+#!/bin/bash
+
+string1="file"
+string2="file"
+if [ $string1 = $string2 ]
+then
+echo "String 1 is equal to string 2"
+fi
+
+
+# example 2
+
+#!/bin/bash
+
+string1="file"
+string2="file1"
+if [ $string1 = $string2 ]
+then
+echo "String 1 is equal to string 2"
+else
+echo "String 1 is not equal to string 2"
+fi
+
+# example 3
+
+#!/bin/bash
+
+string1="file"
+string2="file"
+if [ $string1 = $string2 ]
+then
+echo "String 1 is equal to string 2"
+elif [ $string1 != $string2 ]
+then
+echo "String 1 is not equal to string 2"
+else
+echo "something not right"
+fi
+
+#case
+
+# note that
+;; is equivalent to break in other programming language,
+   explicitly means quit case
+*  default case
+
+# example
+
+#!/bin/bash
+color="red"
+
+case "$color" in
+
+  "red")
+  echo "color is red"
+  ;;
+
+  "blue")
+  echo "color is blue"
+  ;;
+
+  *)
+  ;;
+esac
+
+# while loop
+
+while condition is true loop
+
+# example 1
+
+#!/bin/bash
+
+integer=3
+while [ $integer -ne 0 ]
+do
+echo "Hello $integer"
+integer=`expr $integer -  1`
+done
+
+# for loop
+
+#example 1
+
+#!/bin/bash
+
+for value in 0 1 2 3 4 5
+do
+echo $value
+done
+
+
+#example 2
+
+#!/bin/bash
+
+declare -a array=(0 2 3 4 5 6)
+for value in ${array[*]}
+do
+echo $value
+done
+
+#example 3
+
+for file in ~/.bash*
+do
+echo $file
+done
+
+# until loop
+
+until condition is true loop
+
+#!/bin/bash
+
+count=0
+until [ $count -ge 4 ]
+do
+echo "$count"
+count=`expr $count + 1`
+done
+
+
+# read command line
+read user input with prompt "Enter your name" and store input in variable name                 read -p "Enter your name" name
+read user input silent with prompt                                                             read -ps "Enter password" password
