@@ -306,7 +306,88 @@ echo "$count"
 count=`expr $count + 1`
 done
 
+# select loop
 
+create a number menu
+
+# example 1
+#!/bin/bash
+
+select COLOR in black blue red yellow all none
+do
+   case $COLOR in
+      black)
+      echo "You picked black"
+      ;;
+      blue|red|yellow)
+      echo "You picked either blue/red/yellow"
+      ;;
+      all)
+      echo "you picked all"
+      ;;
+      none)
+      break
+      ;;
+      *)
+      echo "ERROR: Invalid selection"
+      ;;
+   esac
+done
+
+
+# loop control
+
+# break
+exit loop when encounter
+
+
+# example 1
+
+#!/bin/bash
+
+while [ True ]
+do
+  echo "looping"
+  break
+done
+
+
+# example 2 : break nested loop number 2
+
+#!/bin/bash
+
+while [ True ]
+do
+  echo "looping"
+ while [ True ]
+ do
+ echo "nested looping"
+ break 2
+done
+done
+
+continue
+skip current iteration and resume on the following
+comtinue
+
+
+# example 1
+
+declare -a array=(1 2 3 4 5 6 7)
+
+for number in ${array[*]}
+do
+   Q=`expr $number % 2`
+   if [ $Q -eq 0 ]
+   then
+      echo "an even number!!"
+      continue
+   fi
+   echo "odd number"
+done
+
+
+# escape 
 # read command line
 read user input with prompt "Enter your name" and store input in variable name                 read -p "Enter your name" name
 read user input silent with prompt                                                             read -ps "Enter password" password
