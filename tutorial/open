@@ -5,5 +5,5 @@
 
 Open Application Pycharm CE (mac)         $ open /Applications/PyCharm\ CE.app/
               Mail                        $ open /Applications/Mail.app
-              
+              Chrome                      $ open /Applications/Google\ Chrome.app/
 Open folder using finder (mac)            $ open ~/git/python-3/
