@@ -1,0 +1,50 @@
+
+
+File/directory manipulation command
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+Move/rename files and directories                                   $ mv fromPath/ toPath/
+
+Copy files and directories                                          $ cp
+Copy file "important" file "important-backup"                       $ cp important important-backup
+
+Rename/Move file                                                    $ mv
+Rename file1 as file2                                               $ mv file1 file2
+
+create directories                                                  $ mkdir
+create directories tmp,src,bin                                      $ mkdir tmp src bin
+Create directory and subdirectory                                   $ mkdir -p /usr/local/bin
+
+Remove empty directory                                              $ rmdir
+Remove empty directory temp src                                     $ rmdir tmp src
+Remove all directory                                                $ rmdir *
+
+Remove files and directories                                        $ rm
+Remove directory recursively (all sub-directory                     $ rm -r junk
+will be remove
+Remove file recursively                                             $ rm -r
+
+
+Create file command
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+Create empty file 					                                        $touch filename.txt
+Create empty files 					                                        $touch filename1.txt filename2.txt
+Create many empty files                                             $touch file-{1..10}.txt
+
+
+Display file command
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+Concatenate and print file                                          $cat
+Print file content 			 	                                          $cat filename
+Concatenate and print all text files			                          $cat *.txt
+Create and write to file                                            $cat > file
+Concatenate file1 and file2 and move content                        $cat file1 file2 > file3
+to file3

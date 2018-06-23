@@ -1,0 +1,19 @@
+Extensions:
+The ex- tensions “.bak”, “.sav”, “.old”, and “.orig” are all popular ways of indicating a backup file.
+
+Wildcards
+Allows you to select files and directories with pattern
+—————————————————————————————————————————————————————————————————————————————————————————————
+Wildcard			  			                                              Definition
+—————————————————————————————————————————————————————————————————————————————————————————————
+*                                                                   Matches any characters
+?                                                                   Matches any single character
+[characters]                                                        Matches any character in a set
+[!characters]                                                       Matches any character not a member of a set
+[[:class:]]                                                         Matches any character that is a member of a class
+
+[[:alnum:]]                                                         alphanumeric
+[[:alpha:]]                                                         alphabetic
+[[:digit:]]                                                         digit
+[[:upper:]]                                                         upper case characters
+[[:lower:]]                                                         lower case characters

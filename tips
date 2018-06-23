@@ -1,0 +1,39 @@
+Mac:  prompt by the $ sign
+
+Tip:
+When you get error message “Please try running this command again as root/Administrator”
+It simply means you need administrator permission to execute command
+
+Add sudo to the beginning of your command, which is short for “super user do”.
+
+Install Homebrew package manager system following instructions at:
+https://brew.sh/
+
+
+
+General
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+Signal end of input					                                        $CTRL + d
+Signal exit                                                         $CTRL + c
+
+Get command line history                                            $history
+
+Pipe or redirect                                                    |
+
+root directory                                                      /
+
+output to                                                           >
+save command line history to file history-file                      $history > history-file
+
+return working directory home                                       pwd
+
+
+
+
+Date and Time
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+Today calendar                                                      $cal

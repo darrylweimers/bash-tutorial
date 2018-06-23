@@ -1,9 +1,0 @@
-Secure shell 
-
-Ping Device   
-
-
-Action     Description                                                             Command line 
---------------------------------------------------------------------------------------------------------------------
-Ping        Test whether another computer on the network is responding to it.       $ping ip-address 
-Exit Ping   Stop ping                                                               CTRL + c

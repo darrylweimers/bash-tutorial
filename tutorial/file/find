@@ -1,0 +1,18 @@
+https://www.ostechnix.com/the-grep-command-tutorial-with-examples-for-beginners/
+
+
+Grep
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+Find keyword TYPE_NAME ignoring case sensitivity                    $ grep -i "TYPE_NAME" *
+Find Keyword TYPE_NAME recusively from current directory            $ grep -r "TYPE_NAME" *
+                                                                    $ grep -r "TYPE_NAME" * | grep -v target
+
+
+
+Find
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+search pattern from root directory                                  $ find / -name "pattern"

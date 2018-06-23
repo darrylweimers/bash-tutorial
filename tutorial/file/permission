@@ -1,0 +1,88 @@
+File Permission command
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+
+Change file Permission			 	                                      $chmod
+Change file permission to:                                          $chmod 755 filename.txt
+read, write, execute for user
+read and execute for group
+read and execute for other
+
+Get new file creation permission                                    $umask
+Set new file creation permission                                    $umask 755
+Add new file creation permission
+allow user to read                                                  $umask u+r
+Do the follow:                                                      $umask u-x,g=r,o+w
+  - prohibit user to execute and other setting unchange
+  - make user class group to read only
+  - make user class other able to write and other setting unchange
+
+Classes of users:
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+User Classes			  			            Symbol
+—————————————————————————————————————————————————————————————————————————————————————————————
+User                                    u
+Group                                   g
+Other                                   o
+All                                     a
+
+File permission/access is represented using symbols or octal numeric value:
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+Permission				  			              Symbol                      Value
+—————————————————————————————————————————————————————————————————————————————————————————————
+Read                                    r                             4
+Write                                   w                             2
+Execute                                 x                             1
+
+File Type
+—————————————————————————————————————————————————————————————————————————————————————————————
+Type				  			              Symbol
+—————————————————————————————————————————————————————————————————————————————————————————————
+File                                -
+Directory                           d
+Symbolic link                       l
+
+
+
+Binary representation
+
+[read]      [write]   [execute]      COMBINED VALUE       SYBMOL
+  0           0           0                 0
+  0           0           1                 1               x
+  0           1           0                 2               w
+  0           1           1                 3               wx
+  1           0           0                 4               r
+  1           0           1                 5               rx
+  1           1           0                 6               rw
+  1           1           1                 7               rwx
+
+
+File permission example:
+
+-rwxr-xr--
+
+Type         User           Group             Other
+[-]       [r][w][x]       [r][-][x]         [r][-][-]
+file        read             read              read
+            write            execute
+            execute
+
+Another example
+dr--r--r--
+
+Type         User           Group             Other
+[-]       [r][-][-]       [r][-][-]         [r][-][-]
+directory    read             read              read
+
+
+File permission operator
+
+—————————————————————————————————————————————————————————————————————————————————————————————
+Description			  			             Operator
+—————————————————————————————————————————————————————————————————————————————————————————————
+Allow/Add                               +
+Prohibit                                -
+Can only                                =

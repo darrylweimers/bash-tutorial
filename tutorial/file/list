@@ -1,14 +1,12 @@
-
-
-Editor
+List file
 —————————————————————————————————————————————————————————————————————————————————————————————
 Action 				  			                                              Command
 —————————————————————————————————————————————————————————————————————————————————————————————
-nano editor                                                         $nano
-create file1 using editor nano                                      $nano file1
 
-
-Select text
-_________________________________________________________________________________
-use CTRL + Shift + 6 to mark the beginning of your block.
-move cursor with arrow keys to end of your block, the text will be highlighted.
+List filename with pattern
+ending with .txt 					                                          $ls *.txt
+starting with video					                                        $ls video*
+containing 1 						                                            $ls *1*
+start with digit                                                    $ls [[:digit:]]*
+doesn't start with digit                                            $ls [![:digit:]]*
+end with characters 1 or 2                                          $ls *[12]

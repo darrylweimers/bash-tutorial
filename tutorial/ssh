@@ -1,3 +1,17 @@
+
+Secure shell
+
+Ping Device
+
+
+Action     Description                                                             Command line
+--------------------------------------------------------------------------------------------------------------------
+Ping        Test whether another computer on the network is responding to it.       $ping ip-address
+Exit Ping   Stop ping                                                               CTRL + c
+
+
+
+
 Remove that the entry from known_hosts using:
 
 ssh-keygen -R *ip_address_or_hostname*

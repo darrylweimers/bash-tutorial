@@ -1,8 +1,0 @@
-
-
-Extensions:
-The ex- tensions “.bak”, “.sav”, “.old”, and “.orig” are all popular ways of indicating a backup file.
-
-
-Make folders 
-Create directory and subdirectory                   mkdir -p /usr/local/bin 

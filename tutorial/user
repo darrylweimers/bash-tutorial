@@ -11,3 +11,27 @@ Login as Darryl                                                     $su - Darryl
 List users                                                          $users
 
 Make the previous command with sudo priveledge                      $sudo !!
+
+
+Users
+—————————————————————————————————————————————————————————————————————————————————————————————
+Action 				  			                                              Command
+—————————————————————————————————————————————————————————————————————————————————————————————
+act as root user                                                    $ sudo -s
+Exit root user                                                      $ exit
+
+Login as user                                                       $ su -
+Note that - is simplified by -l where l stands for login
+will login as superuser if no user is specified
+
+Login as Darryl                                                     $ su - Darryl
+
+List users                                                          $ users
+
+Make the previous command with sudo priveledge                      $ sudo !!
+
+chown – Change File/directory Owner And Group                       $ sudo chown Darryl:everyone junk/
+Superuser privileges are required to use this command.
+chown [owner][:[group]] file...
+
+change password                                                     $ passwd
