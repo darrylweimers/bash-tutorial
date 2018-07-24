@@ -1,0 +1,41 @@
+reference: https://linux.die.net/man/8/ifconfig
+
+get network status                                                  $ ifconfig
+                                                                    eth0: flags=-28605<UP,BROADCAST,RUNNING,MULTICAST,DYNAMIC>  mtu 1500
+                                                                              inet 192.168.21.141  netmask 255.255.252.0  broadcast 192.168.23.255
+                                                                              inet6 fd00:aaaa::5265:83ff:fe5e:50e8  prefixlen 64  scopeid 0x0<global>
+                                                                              inet6 fd60:aaaa::5265:83ff:fe5e:50e8  prefixlen 64  scopeid 0x0<global>
+                                                                              inet6 fe80::5265:83ff:fe5e:50e8  prefixlen 64  scopeid 0x20<link>
+                                                                              ether 50:65:83:5e:50:e8  txqueuelen 1000  (Ethernet)
+                                                                              RX packets 225840  bytes 51600174 (49.2 MiB)
+                                                                              RX errors 0  dropped 0  overruns 0  frame 0
+                                                                              TX packets 11300  bytes 830059 (810.6 KiB)
+                                                                              TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+                                                                              device interrupt 181
+
+                                                                      lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+                                                                              inet 127.0.0.1  netmask 255.0.0.0
+                                                                              inet6 ::1  prefixlen 128  scopeid 0x10<host>
+                                                                              loop  txqueuelen 1  (Local Loopback)
+                                                                              RX packets 177  bytes 14240 (13.9 KiB)
+                                                                              RX errors 0  dropped 0  overruns 0  frame 0
+                                                                              TX packets 177  bytes 14240 (13.9 KiB)
+                                                                              TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+                                                                      usb0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+                                                                              inet 192.168.7.2  netmask 255.255.255.252  broadcast 192.168.7.3
+                                                                              inet6 fe80::5265:83ff:fe5e:50ea  prefixlen 64  scopeid 0x20<link>
+                                                                              ether 50:65:83:5e:50:ea  txqueuelen 1000  (Ethernet)
+                                                                              RX packets 0  bytes 0 (0.0 B)
+                                                                              RX errors 0  dropped 0  overruns 0  frame 0
+                                                                              TX packets 0  bytes 0 (0.0 B)
+                                                                              TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+                                                                      usb1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+                                                                              inet 192.168.6.2  netmask 255.255.255.252  broadcast 192.168.6.3
+                                                                              inet6 fe80::5265:83ff:fe5e:50ed  prefixlen 64  scopeid 0x20<link>
+                                                                              ether 50:65:83:5e:50:ed  txqueuelen 1000  (Ethernet)
+                                                                              RX packets 16311  bytes 1937836 (1.8 MiB)
+                                                                              RX errors 0  dropped 0  overruns 0  frame 0
+                                                                              TX packets 8445  bytes 1252444 (1.1 MiB)
+                                                                              TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0

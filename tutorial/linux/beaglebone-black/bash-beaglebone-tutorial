@@ -3,12 +3,21 @@
 install debian image:
 Debian 9.3 2018-03-05 4GB SD IoT
 
-ssh to beaglebone black
-setup: mac connect to beaglebone black via USB
+ssh to beaglebone black over USB
 -----------------------------------------------------------------------------------------------------------
 action                                                              bash command
 -----------------------------------------------------------------------------------------------------------
 ssh to beaglebone black via usb using mac                           $ssh debian@192.168.6.8
+
+
+
+ssh to beaglebone black
+setup: mac connect to beaglebone black via Ethernet
+-----------------------------------------------------------------------------------------------------------
+action                                                              bash command
+-----------------------------------------------------------------------------------------------------------
+ssh to beaglebone black via ethernet using mac                      sudo ssh root@beaglebone.local
+
 
 
 Terms
@@ -70,3 +79,133 @@ $ ls /lib/firmware | grep UART
 
 add the desired dto to /boot/uEnv.txt
 to enable overlay
+
+
+
+Date and time setup
+__________________________________________________________________________________________________________________________________________________
+Get app to udpate time and date                                   $ sudo apt-get install ntpdate
+
+
+
+Side note: install pip on mac
+sudo easy_install pip
+
+Python Setup
+__________________________________________________________________________________________________________________________________________________
+Install python essential packages                                 $ sudo apt-get install build-essential python-dev python-setuptools python-pip
+
+pip: package management system used to install and manage software packages written in Python.
+
+python-dev: package that contains the header files for the Python C API,
+which is used by lxml because it includes Python C extensions for high performance
+
+python-setuptools: facilitate packaging Python project
+
+build-essentail: package allows user that want to do development to easily get the most basic tools like gcc and gnu-make
+
+
+Update pip                                                         $ sudo pip install --upgrade pip
+
+Install adafruit BBIO                                              $ sudo pip install Adafruit_BBIO
+
+Install python interpreter                                         $ sudo apt-get install python3.5
+
+
+$ sudo apt-get install ntpdate
+
+
+STEPs to set up adafruit library
+$ sudo apt-get update
+$ sudo apt-get install build-essential python-dev python-setuptools python-pip -y
+$ sudo pip install --upgrade pip
+$ sudo pip install Adafruit_BBIO
+$ sudo apt-get install python3.5
+
+
+
+Setup network ip
+
+$ nano /etc/network/interfaces
+
+# Ethernet/RNDIS gadget (g_ether)
+# Used by: /opt/scripts/boot/autoconfigure_usb0.sh
+iface usb0 inet static
+    address 192.168.7.2
+    netmask 255.255.255.252
+    network 192.168.7.0
+    gateway 192.168.7.1
+
+
+
+ssh to beaglebone black over ethernet
+reference: https://elinux.org/Beagleboard:Terminal_Shells
+-----------------------------------------------------------------------------------------------------------
+action                                                              bash command
+-----------------------------------------------------------------------------------------------------------
+ssh to beaglebone black over usb using mac                          $ ssh debian@192.168.6.8
+
+get the ethernet ip address                                         $ ifconfig
+look for etho, inet                                                           eth0: flags=-28605<UP,BROADCAST,RUNNING,MULTICAST,DYNAMIC>  mtu 1500
+                                                                              inet 192.168.21.141  netmask 255.255.252.0  broadcast 192.168.23.255
+                                                                              inet6 fd00:aaaa::5265:83ff:fe5e:50e8  prefixlen 64  scopeid 0x0<global>
+                                                                              inet6 fd60:aaaa::5265:83ff:fe5e:50e8  prefixlen 64  scopeid 0x0<global>
+                                                                              inet6 fe80::5265:83ff:fe5e:50e8  prefixlen 64  scopeid 0x20<link>
+                                                                              ether 50:65:83:5e:50:e8  txqueuelen 1000  (Ethernet)
+                                                                              RX packets 225840  bytes 51600174 (49.2 MiB)
+                                                                              RX errors 0  dropped 0  overruns 0  frame 0
+                                                                              TX packets 11300  bytes 830059 (810.6 KiB)
+                                                                              TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+                                                                              device interrupt 181
+
+                                                                      lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+                                                                              inet 127.0.0.1  netmask 255.0.0.0
+                                                                              inet6 ::1  prefixlen 128  scopeid 0x10<host>
+                                                                              loop  txqueuelen 1  (Local Loopback)
+                                                                              RX packets 177  bytes 14240 (13.9 KiB)
+                                                                              RX errors 0  dropped 0  overruns 0  frame 0
+                                                                              TX packets 177  bytes 14240 (13.9 KiB)
+                                                                              TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+                                                                      usb0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+                                                                              inet 192.168.7.2  netmask 255.255.255.252  broadcast 192.168.7.3
+                                                                              inet6 fe80::5265:83ff:fe5e:50ea  prefixlen 64  scopeid 0x20<link>
+                                                                              ether 50:65:83:5e:50:ea  txqueuelen 1000  (Ethernet)
+                                                                              RX packets 0  bytes 0 (0.0 B)
+                                                                              RX errors 0  dropped 0  overruns 0  frame 0
+                                                                              TX packets 0  bytes 0 (0.0 B)
+                                                                              TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+                                                                      usb1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+                                                                              inet 192.168.6.2  netmask 255.255.255.252  broadcast 192.168.6.3
+                                                                              inet6 fe80::5265:83ff:fe5e:50ed  prefixlen 64  scopeid 0x20<link>
+                                                                              ether 50:65:83:5e:50:ed  txqueuelen 1000  (Ethernet)
+                                                                              RX packets 16311  bytes 1937836 (1.8 MiB)
+                                                                              RX errors 0  dropped 0  overruns 0  frame 0
+                                                                              TX packets 8445  bytes 1252444 (1.1 MiB)
+                                                                              TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+
+ssh to beaglebone over ethernet                                        $ ssh debian@192.168.21.141
+
+
+
+
+
+
+
+
+
+
+Adafruit_library setup for python 2
+sudo apt-get update
+$ sudo apt-get install build-essential python-dev python-setuptools python-pip -y
+$ sudo pip install --upgrade pip
+$ sudo pip install Adafruit_BBIO
+
+Adafruit_library setup for python 3
+sudo apt-get install python3-pip
+sudo pip3 install Adafruit_BBIO
+
+
+$ sudo apt-get install python3.5

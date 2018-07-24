@@ -1,0 +1,7 @@
+
+
+
+
+
+
+search pattern from root directory                                          $ find / -name "pattern"
