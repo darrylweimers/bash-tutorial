@@ -8,7 +8,14 @@ Action 				  			                                              Command
 Find keyword TYPE_NAME ignoring case sensitivity                    $ grep -i "TYPE_NAME" *
 Find Keyword TYPE_NAME recusively from current directory            $ grep -r "TYPE_NAME" *
                                                                     $ grep -r "TYPE_NAME" * | grep -v target
+Find a a word in a folder:
+grep -nr 'yourString*' .
+The dot at the end searches the current directory. Meaning for each parameter:
 
+-n            Show relative line number in the file
+'yourString*' String for search, followed by a wildcard character
+-r            Recursively search subdirectories listed
+.             Directory for search (current directory)
 
 
 Find
