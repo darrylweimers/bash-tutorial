@@ -17,6 +17,14 @@ The dot at the end searches the current directory. Meaning for each parameter:
 -r            Recursively search subdirectories listed
 .             Directory for search (current directory)
 
+grep -nr . --exclude=*{.lst,.h} --exclude-dir=Tools -e EVENT_MAINS_POWER_NOTIFICATION
+
+-n            line number in file 
+-r            recursively search subdirectories listed 
+.             start from current directory 
+-e            search for regular expression
+--exclude     exclude file with extensions .lst, .h 
+--exclude-dir exclude directory 
 
 Find
 —————————————————————————————————————————————————————————————————————————————————————————————
