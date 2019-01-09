@@ -27,6 +27,8 @@ will be remove
 Remove file recursively                                             $ rm -r
 
 
+
+
 Create file command
 —————————————————————————————————————————————————————————————————————————————————————————————
 Action 				  			                                              Command
@@ -35,6 +37,10 @@ Action 				  			                                              Command
 Create empty file 					                                        $touch filename.txt
 Create empty files 					                                        $touch filename1.txt filename2.txt
 Create many empty files                                             $touch file-{1..10}.txt
+
+
+Create a symlink to directory                                       $ln -s /source-directory /name-of-directory-link-to-source-directory
+
 
 
 Display file command
