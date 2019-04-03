@@ -1,0 +1,43 @@
+grep -[options] "string to search in quotes if string contains space" file
+
+-i      ignore case 
+-w      whole word 
+-n      print line number
+-A 3    three lines after match (e.g.3 can be replace with any other number)
+-B 2    two lines before match (2 can be replace with any other number)
+-C 5    5 lines before and after match (context)
+-l      shows only the file that found the match 
+-r 	search recursively (search directory and all subdirectory files) 
+-V      get grep version (for mac BSD, for linux GNU) 
+-P      user perl regualar expression (grep must be of GNU version) 
+	ggrep -P "\d{3}-\d{3}-\d{4}" names.txt 
+
+grep -r "string to search" dir
+
+current directory: 
+grep -r "string to search" .
+
+search for files in current directory 
+grep -r "string to search" ./*
+
+search for text files in current directory 
+grep -r "string to search" ./*.txt
+
+pipe grep 
+
+history | grep "git commit" | grep "today"
+
+grep with regular expression (find a phone number)
+in regular expression . means any character  
+
+grep -r "...-...-..." .
+
+install gnu grep to use perl regular expression 
+use brew command:
+
+brew install grep
+
+ggrep (gnu grep) 
+
+
+
