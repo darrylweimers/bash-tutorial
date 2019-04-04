@@ -1,0 +1,72 @@
+find . -type d 
+
+find all directory in current directory (.) 
+
+
+find . -type f 
+
+find all files in current directory(.)
+
+
+find . -name "text.txt"
+
+find file name text in current directory (.) 
+
+
+find . -name "test*"
+
+find file name that starts with test (case sensitive) in current directory 
+
+
+find . -iname "test*"
+
+find file name that start with test (case insensitive) in current directory 
+
+
+find . -type f -mtime 1
+
+find files modify less than 1 day ago 
+
+
+find . -type f -mmin 10 
+
+find files modify less than 10 minutes ago 
+
+
+find . -exec chown user:group {} + 
+
+Change user and group for all files returs from find 
+{} 	placeholder for what returns from find 
+-exec 	execute command 
+chown 	command change owner 
++ 	end of line 
+user    you can find the users label by typing users atn command line
+group   you can find the available groups by typing groups at the command line  
+
+
+find . -exec chmod 664 {} +
+ 
+chmod change file mode (or permission) to 777 (read, write and executable) 
+
+
+
+
+
+
+Notes: 
+
+find directory [options]
+
+-type f		           find files only  
+-type d 		   find directory only 
+-name "filename" 	   find file with name filename (could be anything else) case sensitive 
+-iname "filename"          find file with name filename (could be anything else) case insensitive 
+-mmin -10                  find files modify less than 10 minutes ago 
+-mmin +10  	           find files modify more than 10 minutes ago
+-mtime -1    	           find files modify less than a day ago 
+-size +10M 	           find files with size grater than 10 Megabytes
+-size +5k 	           find files with size greater than 5 kilobytes
+-size +1G 	           find files with size greater than 1 Gigabytes
+-empty 			   find files that are emmpty 
+-perm 777] 	           find files with permission [777]
+ 
