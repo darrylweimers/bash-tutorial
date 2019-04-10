@@ -49,7 +49,9 @@ find . -exec chmod 664 {} +
 chmod change file mode (or permission) to 777 (read, write and executable) 
 
 
+find . -type f -iname "*.txt" -maxdepth 1
 
+find files with extension .txt down one directory
 
 
 
@@ -68,5 +70,5 @@ find directory [options]
 -size +5k 	           find files with size greater than 5 kilobytes
 -size +1G 	           find files with size greater than 1 Gigabytes
 -empty 			   find files that are emmpty 
--perm 777] 	           find files with permission [777]
- 
+-perm 777] 	           find files/directories with permission [777]
+-maxdepth 1                find files/directories down 1 directory  
