@@ -55,6 +55,14 @@ find files with extension .txt down one directory
 
 
 
+find all pdfs files and mv them to my_pdfs folder 
+find . -type f -name "*.pdf" | xargs -I {} mv {} my_pdfs/
+
+find files and delete them 
+find . -name "file*" -delete 
+find . -name "file*" -exec rm {} \;
+
+
 Notes: 
 
 find directory [options]
