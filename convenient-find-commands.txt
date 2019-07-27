@@ -1,0 +1,23 @@
+ 
+
+from current directory, find all "file(f)" with extension .dmg 
+find . -type f -maxdepth 1 -name "*.dmg"
+
+from current directory, delete all files with with .dmg extension
+find . -type f -maxdepth 1 -name "*.dmg" -delete
+
+from current directory, show files context that is a day old (-mtime -1)
+find . -type f -maxdepth 1 -mtime -1 | xargs cat
+
+from current directory, find all files that is 5 days old
+find . -type file -mtime -5
+
+from current directory, delete  all files that is 5 days old
+find . -type file -mtime -5 -delete
+
+from current director, move all file with jpg extension into folder "jpgs"
+find . -type file -maxdepth 1 -name "*.jpg" | xargs -I {} mv {} jpgs/
+
+from current director, find all files with .svg or (-o) .png extension 
+find . -type file -maxdepth 1 -name "*.svg" -o -name "*.png"
+
